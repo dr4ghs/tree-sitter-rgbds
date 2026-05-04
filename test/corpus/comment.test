@@ -1,0 +1,20 @@
+==========
+Line comment
+==========
+; This is a comment 
+---
+(program
+    (comment))
+
+==========
+Block comment
+==========
+/*
+*
+* This is a C-style block comment...
+* ...spanning multiple lines
+*/
+---
+(program
+  (comment))
+

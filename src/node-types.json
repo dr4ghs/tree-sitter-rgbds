@@ -1,12 +1,41 @@
 [
   {
-    "type": "source_file",
+    "type": "comment",
     "named": true,
-    "root": true,
+    "extra": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "label",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "program",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
     "named": false
   }
 ]

@@ -1,0 +1,36 @@
+==========
+Global label
+==========
+GlobalLabel:
+---
+(program
+  (label))
+
+==========
+Exported global label
+==========
+GlobalLabel::
+---
+(program 
+  (label))
+
+==========
+Local label
+==========
+.local_label: ; Comment
+.local_label
+GlobalLabel.local:
+GlobalLabel.local
+ .local_label::
+GlobalLabel.local_label::
+GlobalLabel.local_label
+---
+(program
+  (label) (comment)
+  (label)
+  (label)
+  (label)
+  (label)
+  (label)
+  (label))
+
