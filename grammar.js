@@ -37,7 +37,7 @@ export default grammar({
         ),
         'ENDSECTION'
       ),
-    _sec_addr: $ => /\[\$[0-9]{1,4}\]/,
+    _sec_addr: $ => seq('[', $._addr, ']'),
     _sec_type: $ =>
       seq(
         ',',

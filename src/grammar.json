@@ -191,8 +191,21 @@
       ]
     },
     "_sec_addr": {
-      "type": "PATTERN",
-      "value": "\\[\\$[0-9]{1,4}\\]"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_addr"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
     },
     "_sec_type": {
       "type": "SEQ",
