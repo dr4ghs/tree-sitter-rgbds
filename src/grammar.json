@@ -63,6 +63,10 @@
         {
           "type": "SYMBOL",
           "name": "section"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "stack"
         }
       ]
     },
@@ -287,6 +291,32 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "stack": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "PUSHS"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\"[^\"]*\""
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sec_type"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "POPS"
         }
       ]
     },

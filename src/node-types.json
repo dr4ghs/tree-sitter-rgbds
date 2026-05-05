@@ -26,12 +26,21 @@
         {
           "type": "section",
           "named": true
+        },
+        {
+          "type": "stack",
+          "named": true
         }
       ]
     }
   },
   {
     "type": "section",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "stack",
     "named": true,
     "fields": {}
   },
@@ -61,6 +70,14 @@
   },
   {
     "type": "OAM",
+    "named": false
+  },
+  {
+    "type": "POPS",
+    "named": false
+  },
+  {
+    "type": "PUSHS",
     "named": false
   },
   {

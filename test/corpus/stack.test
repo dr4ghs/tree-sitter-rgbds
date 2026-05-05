@@ -1,0 +1,28 @@
+==========
+Push into stack
+==========
+PUSHS "Variables", WRAM0
+---
+(program
+  (stack))
+
+==========
+Pop from stack
+==========
+POPS
+---
+(program
+  (stack))
+
+==========
+Complete push w/ address
+==========
+PUSHS "Variables", WRAMX[$1234]
+  ; Pushing some random variables into working RAM
+POPS
+---
+(program
+  (stack)
+  (comment)
+  (stack))
+

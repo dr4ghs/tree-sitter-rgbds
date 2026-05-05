@@ -12,6 +12,7 @@ export default grammar({
       choice(
         $.label,
         $.section,
+        $.stack,
       ),
     _line_break: $ => '\n',
 
@@ -30,7 +31,6 @@ export default grammar({
       choice(
         seq(
           'SECTION',
-          // $.string,
           /"[^"]*"/,
           $._sec_type,
           optional($._sec_opts),
@@ -58,6 +58,17 @@ export default grammar({
         ',',
         /BANK\[[0-9]+\]/,
         optional(/, ?ALIGN\[[0-9]+(, [0-9]+)?\]/),
+      ),
+
+    // Stack
+    stack: $ =>
+      choice(
+        seq(
+          'PUSHS',
+          /"[^"]*"/,
+          $._sec_type,
+        ),
+        'POPS'
       ),
 
     // Types
