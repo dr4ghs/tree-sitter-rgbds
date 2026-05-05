@@ -26,38 +26,34 @@ export default grammar({
     _local_label: $ => seq(optional($._global_label), /\.[a-z0-9_]+/),
 
     // Sections
-    section: $ => 
+    section: $ => choice(
+      $._section_start,
+      $._section_end,
+    ),
+    _section_start: $ => seq(
+      'SECTION',
+      $.section_name,
+      seq(',', $.section_type),
+      optional(repeat(seq(',', $.section_option))),
+    ),
+    _section_end: $ => 'ENDSECTION',
+    section_name: $ => /"[^"]*"/,
+    section_type: $ => seq(
       choice(
-        seq(
-          'SECTION',
-          /"[^"]*"/,
-          $._sec_type,
-          optional($._sec_opts),
-        ),
-        'ENDSECTION'
+        /ROM[0X]/,
+        /WRAM[0X]/,
+        /[VSH]RAM/,
+        'OAM',
       ),
-    _sec_addr: $ => seq('[', $._addr, ']'),
-    _sec_type: $ =>
-      seq(
-        ',',
-        choice(
-          'ROM0',
-          'ROMX',
-          'VRAM',
-          'SRAM',
-          'WRAM0',
-          'WRAMX',
-          'OAM',
-          'HRAM',
-        ),
-        optional($._sec_addr),
+      optional($._section_address),
+    ),
+    _section_address: $ => seq('[', /\$[a-fA-F0-9]{1,4}/, ']'),
+    section_option: $ => choice(
+        $._section_bank_opt,
+        $._section_align_opt,
       ),
-    _sec_opts: $ =>
-      seq(
-        ',',
-        /BANK\[[0-9]+\]/,
-        optional(/, ?ALIGN\[[0-9]+(, [0-9]+)?\]/),
-      ),
+    _section_bank_opt: $ => /BANK\[[0-9]+\]/,
+    _section_align_opt: $ => /ALIGN\[[0-9]+(, ?[0-9]+)?\]/,
 
     // Stack
     stack: $ =>
@@ -65,7 +61,7 @@ export default grammar({
         seq(
           'PUSHS',
           /"[^"]*"/,
-          $._sec_type,
+          $.section_type,
         ),
         'POPS'
       ),

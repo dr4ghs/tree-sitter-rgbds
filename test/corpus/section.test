@@ -11,14 +11,30 @@ SECTION "OAM Data", OAM
 SECTION "HRAM Data", HRAM
 ---
 (program
-  (section)
-  (section)
-  (section)
-  (section)
-  (section)
-  (section)
-  (section)
-  (section))
+  (section 
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type))
+  (section
+    (section_name)
+    (section_type)))
 
 ==========
 ROMX section w/ address
@@ -26,7 +42,9 @@ ROMX section w/ address
 SECTION "ROMX Data", ROMX[$1234]
 ---
 (program
-  (section))
+  (section
+    (section_name)
+    (section_type)))
 
 ==========
 VRAM section on BANK 1
@@ -34,7 +52,10 @@ VRAM section on BANK 1
 SECTION "VRAM Data", VRAM, BANK[1]
 ---
 (program
-  (section))
+  (section
+    (section_name)
+    (section_type)
+    (section_option)))
 
 ==========
 VRAM section on BANK 0 w/ ALIGN
@@ -42,7 +63,11 @@ VRAM section on BANK 0 w/ ALIGN
 SECTION "VRAM Data", VRAM, BANK[1], ALIGN[16]
 ---
 (program
-  (section))
+  (section
+    (section_name)
+    (section_type)
+    (section_option)
+    (section_option)))
 
 ==========
 Explicit end section
@@ -52,6 +77,8 @@ SECTION "Save Data", SRAM
 ENDSECTION
 ---
 (program
-  (section)
+  (section
+    (section_name)
+    (section_type))
   (comment)
   (section))
