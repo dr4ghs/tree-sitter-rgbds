@@ -14,7 +14,6 @@ export default grammar({
         $.section,
         $.stack,
       ),
-    _line_break: $ => '\n',
 
     // Labels
     label: $ => 
