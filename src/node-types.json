@@ -22,12 +22,25 @@
         {
           "type": "label",
           "named": true
+        },
+        {
+          "type": "section",
+          "named": true
         }
       ]
     }
   },
   {
+    "type": "section",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\n",
+    "named": false
+  },
+  {
+    "type": ",",
     "named": false
   },
   {
@@ -36,6 +49,46 @@
   },
   {
     "type": "::",
+    "named": false
+  },
+  {
+    "type": "ENDSECTION",
+    "named": false
+  },
+  {
+    "type": "HRAM",
+    "named": false
+  },
+  {
+    "type": "OAM",
+    "named": false
+  },
+  {
+    "type": "ROM0",
+    "named": false
+  },
+  {
+    "type": "ROMX",
+    "named": false
+  },
+  {
+    "type": "SECTION",
+    "named": false
+  },
+  {
+    "type": "SRAM",
+    "named": false
+  },
+  {
+    "type": "VRAM",
+    "named": false
+  },
+  {
+    "type": "WRAM0",
+    "named": false
+  },
+  {
+    "type": "WRAMX",
     "named": false
   }
 ]

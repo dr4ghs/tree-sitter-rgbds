@@ -1,0 +1,57 @@
+==========
+All type sections
+==========
+SECTION "ROM0 Data", ROM0
+SECTION "ROMX Data", ROMX
+SECTION "VRAM Data", VRAM
+SECTION "SRAM Data", SRAM
+SECTION "WRAM0 Data", WRAM0
+SECTION "WRAMX Data", WRAMX
+SECTION "OAM Data", OAM
+SECTION "HRAM Data", HRAM
+---
+(program
+  (section)
+  (section)
+  (section)
+  (section)
+  (section)
+  (section)
+  (section)
+  (section))
+
+==========
+ROMX section w/ address
+==========
+SECTION "ROMX Data", ROMX[$1234]
+---
+(program
+  (section))
+
+==========
+VRAM section on BANK 1
+==========
+SECTION "VRAM Data", VRAM, BANK[1]
+---
+(program
+  (section))
+
+==========
+VRAM section on BANK 0 w/ ALIGN
+==========
+SECTION "VRAM Data", VRAM, BANK[1], ALIGN[16]
+---
+(program
+  (section))
+
+==========
+Explicit end section
+==========
+SECTION "Save Data", SRAM
+; Set save data here
+ENDSECTION
+---
+(program
+  (section)
+  (comment)
+  (section))

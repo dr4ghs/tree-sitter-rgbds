@@ -59,6 +59,10 @@
         {
           "type": "SYMBOL",
           "name": "label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "section"
         }
       ]
     },
@@ -148,9 +152,138 @@
         }
       ]
     },
+    "section": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "SECTION"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\"[^\"]*\""
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sec_type"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_sec_opts"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "ENDSECTION"
+        }
+      ]
+    },
+    "_sec_addr": {
+      "type": "PATTERN",
+      "value": "\\[\\$[0-9]{1,4}\\]"
+    },
+    "_sec_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "ROM0"
+            },
+            {
+              "type": "STRING",
+              "value": "ROMX"
+            },
+            {
+              "type": "STRING",
+              "value": "VRAM"
+            },
+            {
+              "type": "STRING",
+              "value": "SRAM"
+            },
+            {
+              "type": "STRING",
+              "value": "WRAM0"
+            },
+            {
+              "type": "STRING",
+              "value": "WRAMX"
+            },
+            {
+              "type": "STRING",
+              "value": "OAM"
+            },
+            {
+              "type": "STRING",
+              "value": "HRAM"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_sec_addr"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_sec_opts": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "PATTERN",
+          "value": "BANK\\[[0-9]+\\]"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": ", ?ALIGN\\[[0-9]+(, [0-9]+)?\\]"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
     "string": {
       "type": "PATTERN",
       "value": "\"[^\"]*\""
+    },
+    "_addr": {
+      "type": "PATTERN",
+      "value": "\\$[0-9]{1,4}"
     },
     "comment": {
       "type": "CHOICE",
