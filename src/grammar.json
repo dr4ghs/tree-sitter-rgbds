@@ -74,81 +74,16 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_global_label"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ":"
-                },
-                {
-                  "type": "STRING",
-                  "value": "::"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_local_label"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": ":"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "::"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "_global_label": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z_][a-zA-Z0-9_$#]+"
-    },
-    "_local_label": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_global_label"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "PATTERN",
+          "value": "[a-zA-Z_][a-zA-Z0-9_#\\$@]*:{1,2}"
         },
         {
           "type": "PATTERN",
-          "value": "\\.[a-z0-9_]+"
+          "value": "([a-zA-Z_][a-zA-Z0-9_#\\$@]*)?\\.[a-zA-Z0-9_#\\$@]+:{0,2}"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
         }
       ]
     },

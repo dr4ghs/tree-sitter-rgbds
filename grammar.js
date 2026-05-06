@@ -15,15 +15,12 @@ export default grammar({
         $.stack,
       ),
 
-    // Labels
-    label: $ => 
-      choice(
-        seq($._global_label, choice(':', '::')),
-        seq($._local_label, optional(choice(':', '::'))),
-      ),
-
-    _global_label: $ => /[a-zA-Z_][a-zA-Z0-9_$#]+/,
-    _local_label: $ => seq(optional($._global_label), /\.[a-z0-9_]+/),
+    // Symbols
+    label: $ => choice(
+      /[a-zA-Z_][a-zA-Z0-9_#\$@]*:{1,2}/,                                       // Global
+      /([a-zA-Z_][a-zA-Z0-9_#\$@]*)?\.[a-zA-Z0-9_#\$@]+:{0,2}/,                 // Local
+      ':',                                                                      // Anonymous
+    ),
 
     // Sections
     section: $ => choice(

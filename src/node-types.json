@@ -100,10 +100,6 @@
     "named": false
   },
   {
-    "type": "::",
-    "named": false
-  },
-  {
     "type": "ENDSECTION",
     "named": false
   },
