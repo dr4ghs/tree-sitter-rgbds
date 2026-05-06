@@ -260,50 +260,25 @@
         }
       ]
     },
+    "int": {
+      "type": "PATTERN",
+      "value": "-?[0-9][0-9]*|(\\$|0[Xx])[a-fA-F0-9][a-fA-F0-9_]*|(&|0[Oo])[0-7][0-7_]*|(%|0[Bb])[01][01_]*"
+    },
+    "float": {
+      "type": "PATTERN",
+      "value": "-?[0-9][0-9_]*\\.[0-9][0-9_]*(q[0-9][0-9_]*)?"
+    },
     "string": {
       "type": "PATTERN",
       "value": "\"[^\"]*\""
     },
-    "number": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[0-9][0-9_]*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "(\\$|0[Xx])[a-fA-F0-9][a-fA-F0-9_]*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "(&|0[Oo])[0-7][0-7_]*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "(%|0[Bb][01][01_]*)"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[0-9][0-9_]*.[0-9][0-9_]*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[0-9][0-9_]*.[0-9][0-9_]*([qQ][0-9]+)?"
-        },
-        {
-          "type": "PATTERN",
-          "value": "."
-        },
-        {
-          "type": "PATTERN",
-          "value": "`[0-3][0-3_]{,7}*"
-        }
-      ]
-    },
-    "_addr": {
+    "char": {
       "type": "PATTERN",
-      "value": "\\$[0-9]{1,4}"
+      "value": "'[^']'"
+    },
+    "gbgfx": {
+      "type": "PATTERN",
+      "value": "`[0-3]{1,8}"
     },
     "comment": {
       "type": "CHOICE",
